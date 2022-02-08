@@ -1,0 +1,28 @@
+---
+swagger: "2.0"
+info:
+  description: |
+    An example for how to use Auth with Swagger.
+  version: 1.0.0
+  title: Based on "Basic Auth Example"
+host: basic-auth-server.herokuapp.com
+schemes:
+- http
+- https
+paths:
+  /:
+    get:
+      parameters: []
+      responses:
+        "200":
+          description: Will send `Authenticated`
+        "403":
+          description: You do not have necessary permissions for the resource
+      security:
+      - Bearer: []
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
